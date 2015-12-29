@@ -1,0 +1,20 @@
+#board {
+  background-color: #fafafa;
+}
+.board-cell {
+  display: inline-block;
+  width: 30px; height: 30px;
+  cursor: pointer;
+}
+.board-cell.off {
+  background: #444;
+}
+.board-cell.on {
+  background: #eee;
+}
+.board-cell[data-solution='1'] {
+  border: 3px solid red;
+}
+.board-cell:hover {
+  background: #ccc;
+}

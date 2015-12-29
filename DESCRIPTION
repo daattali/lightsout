@@ -1,11 +1,23 @@
 Package: lightsout
-Type: Package
-Title: What the Package Does (Title Case)
+Title: Lights Out Game
 Version: 0.1
-Date: 2015-12-29
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
+Authors@R: c(
+    person("Dean", "Attali", , "daattali@gmail.com", role = c("aut", "cre"))
+    )
 Description: More about what it does (maybe more than one line)
-License: What license is it under?
-LazyData: TRUE
+URL: https://github.com/daattali/lightsout
+BugReports: https://github.com/daattali/lightsout/issues
+Depends:
+    R (>= 3.0.0)
+Imports:
+    magrittr (>= 1.5),
+    shiny (>= 0.10.0),
+    shinyjs (>= 0.2.0)
+Suggests:
+    knitr (>= 1.7),
+    testthat (>= 0.9.1),
+    rmarkdown
+License: file LICENSE
+LazyData: true
+VignetteBuilder: knitr
 RoxygenNote: 5.0.1
