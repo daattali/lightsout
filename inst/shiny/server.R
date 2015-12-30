@@ -1,19 +1,20 @@
 library(lightsout)
-library(shinyjs)
 
 server <- function(input, output, session) {
   values <- reactiveValues(
     size = NULL,
     board = NULL,
     showHint = NULL,
-    solution = NULL
+    solution = NULL,
+    active = NULL
   )
 
-  observeEvent(input$new, ignoreNULL = FALSE, {
+  observeEvent(input$newgame, ignoreNULL = FALSE, {
     values$size <- as.numeric(input$boardSize)
     values$board <- random_board(values$size, input$mode == "classic")
     values$showHint <- FALSE
     values$solution <- NULL
+    values$active <- TRUE
   })
 
   output$board <- renderUI({
@@ -25,6 +26,9 @@ server <- function(input, output, session) {
 
       div(
         id = "board-inner",
+        class = ifelse(values$active, "active", "inactive"),
+        div(id = "board-shield"),
+
         lapply(seq(size), function(row) {
           tagList(
             div(
@@ -65,7 +69,7 @@ server <- function(input, output, session) {
         }
 
         if (board_solved(values$board)) {
-          delay(200, info("Good job!"))
+          values$active <- FALSE
         }
       })
     })
@@ -79,6 +83,11 @@ server <- function(input, output, session) {
   })
 
   observe({
-    toggleClass(id = "solve", class = "btn-primary", condition = values$showHint)
+    toggle(id = "congrats", condition = !values$active)
+    toggleState(id = "solve", condition = values$active)
+  })
+
+  observe({
+    toggleClass(id = "solve", class = "active", condition = values$showHint)
   })
 }

@@ -12,7 +12,7 @@ Depends:
 Imports:
     magrittr (>= 1.5),
     shiny (>= 0.10.0),
-    shinyjs (>= 0.2.0)
+    shinyjs (>= 0.3.0)
 Suggests:
     knitr (>= 1.7),
     testthat (>= 0.9.1),
