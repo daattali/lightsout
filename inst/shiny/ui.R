@@ -1,13 +1,17 @@
 fluidPage(
   shinyjs::useShinyjs(),
   tags$head(
-    tags$script(src = "lightsout.js"),
     tags$link(href = "style.css", rel = "stylesheet")
   ),
   selectInput("boardSize", "Board size",
-              c("3x3" = "3", "5x5"= "5", "7x7" = "7", "9x9" = "9")),
-  checkboxInput("fullRow", "Light the entire row", FALSE),
-  actionButton("new", "New"),
+              unlist(lapply(allowed_sizes,
+                            function(n) setNames(n, paste0(n, "x", n))))),
+  selectInput("mode", "Game mode (what lights get flipped)",
+              c("Classic (adjacent lights only)" = "classic",
+                "Variant (entire row and column)" = "variant")),
+  helpText("sdfds"),
+  actionButton("new", "New game"),
   actionButton("solve", "Show solution"),
+  br(),
   uiOutput("board")
 )
