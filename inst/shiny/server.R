@@ -9,6 +9,7 @@ server <- function(input, output, session) {
     active = NULL
   )
 
+  # New game button is clicked (this also runs when the app first loads)
   observeEvent(input$newgame, ignoreNULL = FALSE, {
     values$size <- as.numeric(input$boardSize)
     values$board <- random_board(values$size, input$mode == "classic")
@@ -17,6 +18,7 @@ server <- function(input, output, session) {
     values$active <- TRUE
   })
 
+  # When the board changes or hints are turned on/off, redraw the board
   output$board <- renderUI({
     values$board
     values$showHint
@@ -59,6 +61,9 @@ server <- function(input, output, session) {
     })
   })
 
+  # Define click handlers for clicking on any possible cell on the board
+  # (this could also be done dynamically with each board creation, but there's
+  # no need to do that since we know the board can have a maximum size)
   lapply(seq(max(allowed_sizes)), function(row) {
     lapply(seq(max(allowed_sizes)), function(col) {
       id <- sprintf("cell-%s-%s", row, col)
@@ -75,6 +80,7 @@ server <- function(input, output, session) {
     })
   })
 
+  # User clicked on the "Show solution" button
   observeEvent(input$solve, {
     values$showHint <- !values$showHint
     if (values$showHint) {
@@ -82,12 +88,14 @@ server <- function(input, output, session) {
     }
   })
 
+  # Show the solutions button is pressed after it's clicked
+  observe({
+    toggleClass(id = "solve", class = "active", condition = values$showHint)
+  })
+
+  # Show/disable elements when the game is over
   observe({
     toggle(id = "congrats", condition = !values$active)
     toggleState(id = "solve", condition = values$active)
-  })
-
-  observe({
-    toggleClass(id = "solve", class = "active", condition = values$showHint)
   })
 }
