@@ -2,11 +2,11 @@
 % Please edit documentation in R/launch.R
 \name{launch}
 \alias{launch}
-\title{Run the interactive graphical interface to the game}
+\title{Run the graphical interface to the game in a web browser}
 \usage{
 launch()
 }
 \description{
-Run the interactive graphical interface to the game
+Run the graphical interface to the game in a web browser
 }
 

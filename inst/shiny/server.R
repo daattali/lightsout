@@ -73,7 +73,7 @@ server <- function(input, output, session) {
           values$solution <- solve_board(values$board)
         }
 
-        if (board_solved(values$board)) {
+        if (is_solved(values$board)) {
           values$active <- FALSE
         }
       })

@@ -1,4 +1,4 @@
-#' Run the interactive graphical interface to the game
+#' Run the graphical interface to the game in a web browser
 #' @export
 launch <- function() {
   shiny::runApp(system.file("shiny", package = "lightsout"),

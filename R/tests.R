@@ -1,3 +1,8 @@
+test_board <- function(size, classic = TRUE) {
+
+}
+
+
 board3_1 <- matrix(
   nrow = 3, byrow = TRUE,
   c(1, 1, 0,

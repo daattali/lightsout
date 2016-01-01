@@ -1,5 +1,34 @@
-# http://people.math.sfu.ca/~jtmulhol/math302/notes/24-Lights-Out.pdf
-
+#' Initialize a Lights Out board with a given lights configuration
+#'
+#' Create a Lights Out board that can be played by the user or solved automatically.
+#' Only square boards of size 3x3, 5x5, 7x7, or 9x9 are supported. The initial
+#' lights configuration must be provided. To create a board with a random
+#' configuration, use the \code{\link[lightsout]{random_board()}} function.
+#'
+#' @param entries The initial configuration of lights on the board. \code{entries}
+#' can either be a vector or a matrix. If a vector is used, the vector is assumed
+#' to start at the top-left corner of the board and is read row-by-row. Only values
+#' of 0 (light off) and 1 (light on) are allowed in the vector or matrix. See
+#' the examples below.
+#' @param classic If \code{TRUE}, then pressing a light will toggle it and its
+#' adjacent neighbours only. If \code{FALSE}, then pressing a light will toggle
+#' the entire row and column of the pressed light.
+#' @return A \code{lightsout} board object.
+#' @seealso \code{\link[lightsout]{random_board}}
+#' \code{\link[lightsout]{play}}
+#' \code{\link[lightsout]{solve_board}}
+#' @examples
+#' vector <- c(1, 1, 0,
+#'             1, 0, 1,
+#'             0, 1, 1)
+#' new_board(entries = vector)
+#'
+#' matrix <- matrix(
+#'             c(1, 1, 0,
+#'               1, 0, 1,
+#'               0, 1, 1),
+#'             nrow = 3, byrow = TRUE)
+#' new_board(entries = matrix)
 #' @export
 new_board <- function(entries, classic = TRUE) {
   allowed_sizes <- c(3, 5, 7, 9)
@@ -8,7 +37,7 @@ new_board <- function(entries, classic = TRUE) {
   if (is.vector(entries)) {
     n <- sqrt(length(entries))
     if (n %% 1 != 0) {
-      stop("`entries` cannot be transformed into a square matrix",
+      stop("`entries` cannot be transformed into a square matrix. Make sure the vector length matches a square.",
            call. = FALSE)
     }
     entries <- matrix(entries, ncol = n, nrow = n, byrow = TRUE)
@@ -51,95 +80,60 @@ new_board <- function(entries, classic = TRUE) {
   structure(board, class = "lightsout")
 }
 
-board_entries <- function(board) {
-  stopifnot(inherits(board, "lightsout"))
-  board[['entries']]
-}
-`board_entries<-` <- function(board, value) {
-  stopifnot(inherits(board, "lightsout"))
-  board[['entries']] <- value
-  board
-}
-
-board_size <- function(board) {
-  stopifnot(inherits(board, "lightsout"))
-  board[['size']]
-}
-
-board_classic <- function(board) {
-  stopifnot(inherits(board, "lightsout"))
-  board[['classic']]
-}
-
-board_toggle_matrix <- function(board) {
-  stopifnot(inherits(board, "lightsout"))
-  board[['toggle_matrix']]
-}
-
+#' Print a lightsout board
+#' @export
+#' @keywords internal
 print.lightsout <- function(x, ...) {
   cat("Lights Out ", board_size(x), "x", board_size(x), " board", "\n", sep = "")
   cat("Game mode:", ifelse(board_classic(x), "classic", "entire row/column"), "\n\n\t")
   write.table(board_entries(x), row.names = FALSE, col.names = FALSE, eol = "\n\t")
 }
 
+#' Initialize a Lights Out board with all lights switched off
+#'
+#' @param size Number of rows and columns for the board
+#' @inheritParams new_board
+#' @return A \code{lightsout} board.
+#' @seealso \code{\link[lightsout]{random_board}}
+#' \code{\link[lightsout]{new_board}}
+#' @examples
+#' empty_board(5)
+#' @export
 empty_board <- function(size, classic = TRUE) {
   new_board(entries = rep(0, size*size), classic = classic)
 }
 
-board_solved <- function(board) {
-  stopifnot(inherits(board, "lightsout"))
-  sum(as.numeric(board_entries(board))) == 0
-}
-
-# Given a board and a position, simulate a click in that location
-play <- function(board, row, col, matrix) {
-  stopifnot(inherits(board, "lightsout"))
-
-  if (missing(row) && missing(col)) {
-    size <- board_size(board)
-    toggle_pos <- which(matrix == 1)
-
-    for(pos1 in toggle_pos) {
-      pos2 <- position_1d_to_2d(pos1, size, byrow = FALSE)
-      board <- play_helper(board, row = pos2[1], col = pos2[2])
-    }
-  } else {
-    if (length(row) != length(col)) {
-      stop("The row and column vectors are not the same length",
-           call. = FALSE)
-    }
-    for (i in seq_along(row)) {
-      board <- play_helper(board, row = row[i], col = col[i])
-    }
-  }
-
-  board
-}
-
-play_helper <- function(board, row, col) {
-  size <- board_size(board)
-  classic <- board_classic(board)
-  entries <- board_entries(board)
-
-  if (classic) {
-    entries[row, col] <- 1 - entries[row, col]
-    if (row > 1)    entries[row - 1, col] <- 1 - entries[row - 1, col]
-    if (row < size) entries[row + 1, col] <- 1 - entries[row + 1, col]
-    if (col > 1)    entries[row, col - 1] <- 1 - entries[row, col - 1]
-    if (col < size) entries[row, col + 1] <- 1 - entries[row, col + 1]
-  } else {
-    entries[row, col] <- 1 - entries[row, col]
-    entries[row, ]    <- 1 - entries[row, ]
-    entries[ , col]   <- 1 - entries[ , col]
-  }
-
-  board_entries(board) <- entries
-
-  board
-}
-
+#' Create a random (but solvable) Lights Out board
+#'
+#' Create a Lights Out board that can be played by the user or solved automatically.
+#' Only square boards of size 3x3, 5x5, 7x7, or 9x9 are supported. The initial
+#' lights configuration is randomly generated, but always solvable. To create a
+#' board with a user-defined configuration, use the \code{\link[lightsout]{new_board()}} function.
+#' @inheritParams new_board
+#' @param size Number of rows and columns for the board
+#' @seealso \code{\link[lightsout]{new_board}}
+#' \code{\link[lightsout]{play}}
+#' \code{\link[lightsout]{solve_board}}
+#' @return A \code{lightsout} board object.
+#' @examples
+#' set.seed(10)
+#'
+#' # Create a random 5x5 classic board
+#' board <- random_board(5)
+#' board
+#'
+#' # Get the solution for the board
+#' solution <- solve_board(board)
+#' solution
+#'
+#' # Press the lights according to the solution, the result should be a board
+#' # with all lights switched off
+#' play(board, matrix = solution)
 #' @export
 random_board <- function(size, classic = TRUE) {
+  # generate a solvable board by starting with an all-off board and pressing
+  # somee lights randomly. The number of lights pressed is between 20% to 80% of
+  # the number of total lights on the board
   board <- empty_board(size, classic = classic)
   num_plays <- round(runif(1, size*size*0.2, size*size*0.8))
   positions <- sort(sample(size*size, num_plays))
@@ -148,128 +142,4 @@ random_board <- function(size, classic = TRUE) {
   play_matrix <- t(play_matrix)
   board <- play(board, matrix = play_matrix)
   board
-}
-
-position_1d_to_2d <- function(pos, size, byrow = TRUE) {
-  row <- floor((pos - 1) / size) + 1
-  col <- pos - ((row - 1) * size)
-  if (byrow) {
-    c(row, col)
-  } else {
-    c(col, row)
-  }
-}
-
-
-# Create the lightsout matrix used to solve the board
-generate_lightsout_matrix <- function(size, classic = TRUE) {
-  mat <- matrix(0, ncol = size*size, nrow = size*size)
-
-  for (i in seq(size)) {
-    for (j in seq(size)) {
-      row <- size * (i - 1) + j
-      mat[row, row] <- 1
-      if (classic) {
-        if (i > 1)    mat[row, row - size] <- 1
-        if (i < size) mat[row, row + size] <- 1
-        if (j > 1)    mat[row, row - 1] <- 1
-        if (j < size) mat[row, row + 1] <- 1
-      } else {
-        mat[row, size * (i - 1) + seq(size)] <- 1
-        mat[row, size * seq(size - 1) + (j - 1) + 1] <- 1
-      }
-    }
-  }
-
-  mat
-}
-
-is_solvable <- function(board) {
-  size <- board_size(board)
-  answer <- solve_helper(board)
-  board <- play(board, matrix = answer)
-
-  board_solved(board)
-}
-
-#' Solve a lightsout board
-#'
-#' Given a 5x5 lightsout game board, find the minimum number of clicks
-#' to solve the board.
-#'
-#' The input must be a 5x5 matrix of 0s and 1s.
-#'
-#' The return value is a matrix with the same dimensions as the game board, with
-#' a 1 in every position that requires a click. The order of clicks doesn't matter.
-#'
-#' Note that a solution will ALWAYS be given, even if the board is not actually
-#' solveable. Therefore, you should check the solution by "clicking" all the 1s
-#' in the answer and see if the board actually gets solved. If not, then that means
-#' there is no solution to the given board.
-#' @export
-solve_board <- function(board) {
-  if (!is_solvable(board)) {
-    stop("Board does not have a solution", call. = FALSE)
-  }
-
-  answer <- solve_helper(board)
-  answer
-}
-
-solve_helper <- function(board) {
-  stopifnot(inherits(board, "lightsout"))
-
-  nrows_board <- board_size(board)
-  nrows <- nrows_board * nrows_board
-  lightsout_mat <- board_toggle_matrix(board)
-  entries <- board_entries(board)
-
-  # Change the board matrix into a column vector
-  entries <- t(entries)
-  dim(entries) <- c(nrows, 1)
-
-  augmented <- cbind(lightsout_mat, entries)
-
-  # Perform Gaussian elimination
-  # This code is highly optimized and vectorized to work in modulus 2 only, so
-  # it doesn't look much like what you'd expect row reduction code to look like
-  for (row in seq(2, nrows)) {
-    nonzero_idx <- which(augmented[row:nrows, row - 1] == 1) + (row - 1)
-    num_nonzero <- length(nonzero_idx)
-
-    if (num_nonzero > 0) {
-      augmented[nonzero_idx, ] <- ((augmented[nonzero_idx, ] - augmented[rep(row - 1, num_nonzero), ]) %% 2)
-    }
-
-    # Move all the zero-rows to the bottom
-    if (augmented[row, row] == 0) {
-      zero_rows <- which(augmented[row:nrows,row] == 1)
-      if (length(zero_rows) > 0) {
-        zero_rows <- seq(row, row + zero_rows[1] - 2)
-        augmented <- rbind(augmented[-zero_rows, ], augmented[zero_rows, ])
-      }
-    }
-  }
-
-  # The augmented matrix is now in row echelon form
-  # We just need to perform back-substitution to get the reduced row echelon form
-  for (col in seq(nrows, 2)) {
-    nonzero_idx <- which(augmented[1:(col - 1), col] == 1)
-    num_nonzero <- length(nonzero_idx)
-    if (num_nonzero > 0) {
-      augmented[nonzero_idx, ] <- ((augmented[nonzero_idx, ] - augmented[rep(col, num_nonzero), ]) %% 2)
-    }
-  }
-
-
-  # The last column of the augmented matrix is our answer vector, so take it
-  # and make it into a nxn matrix
-  answer <- augmented[, ncol(augmented)]
-  answer <- matrix(answer, nrow = nrows_board, byrow = TRUE)
-  structure(answer, class = "lightsout_solution")
-}
-
-print.lightsout_solution <- function(x, ...) {
-  cat("\n\t")
-  write.table(x, row.names = FALSE, col.names = FALSE, eol = "\n\t")
 }

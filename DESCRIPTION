@@ -1,10 +1,16 @@
 Package: lightsout
-Title: Lights Out Game
+Title: Implementation of the 'Lights Out' Puzzle Game Including a Solver
 Version: 0.1
 Authors@R: c(
     person("Dean", "Attali", , "daattali@gmail.com", role = c("aut", "cre"))
     )
-Description: More about what it does (maybe more than one line)
+Description: Lights Out is a puzzle game consisting of a grid of lights
+    that are either on or off. Pressing any light will toggle it and its
+    adjacent lights. The goal of the game is to sitch all the lights off. This
+    package provides an interface to play the game on different board sizes,
+    both through the command line or with a visual application. Puzzles can
+    also be solved using the automatic solver included. View a demo
+    online at http://daattali.com/shiny/lightsout/.
 URL: https://github.com/daattali/lightsout
 BugReports: https://github.com/daattali/lightsout/issues
 Depends:
