@@ -59,8 +59,8 @@ newboard <- play(board, matrix = matrix(
                           nrow = 5, byrow = TRUE))
 newboard
 
-Press the same lights, but this time when the game mode is not classic,
-and the whole row/column get toggled
+# Press the same lights, but this time when the game mode is not classic,
+# and the whole row/column get toggled
 empty_board(5, classic = FALSE) \%>\% play(2, 1)
 empty_board(5, classic = FALSE) \%>\% play(c(2, 3), c(1, 4))
 }
