@@ -57,6 +57,8 @@
 play <- function(board, row, col, matrix) {
   stopifnot(inherits(board, "lightsout"))
 
+  size <- board_size(board)
+
   # If a matrix is given, make sure the matrix is valid, and play each position
   if (missing(row) && missing(col)) {
     if (!is.matrix(matrix) || length(matrix) != length(board_entries(board))) {
@@ -64,7 +66,6 @@ play <- function(board, row, col, matrix) {
            call. = FALSE)
     }
 
-    size <- board_size(board)
     toggle_pos <- which(matrix == 1)
 
     for(pos1 in toggle_pos) {
@@ -76,6 +77,12 @@ play <- function(board, row, col, matrix) {
       stop("The row and column vectors are not the same length",
            call. = FALSE)
     }
+    if (sum(row > size | row < 1 | col > size | col < 1) > 0) {
+      stop(paste0("All rows and columns provided must be within the board dimensions ",
+                  "(1 to ", size, ")"),
+           call. = FALSE)
+    }
+
     for (i in seq_along(row)) {
       board <- play_helper(board, row = row[i], col = col[i])
     }

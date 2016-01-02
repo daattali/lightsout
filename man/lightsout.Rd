@@ -4,14 +4,11 @@
 \name{lightsout}
 \alias{lightsout}
 \alias{lightsout-package}
-\title{lightsout}
+\title{lightsout package -  Implementation of the 'Lights Out' Puzzle Game Including a Solver}
 \description{
-Implementation of the 'Lights Out' Puzzle Game Including a Solver
-}
-\details{
 Lights Out is a puzzle game consisting of a grid of lights
 that are either on or off. Pressing any light will toggle it and its
-adjacent lights. The goal of the game is to sitch all the lights off. This
+adjacent lights. The goal of the game is to switch all the lights off. This
 package provides an interface to play the game on different board sizes,
 both through the command line or with a visual application. Puzzles can
 also be solved using the automatic solver included.
