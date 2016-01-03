@@ -9,7 +9,16 @@ board_entries(board)
 \arguments{
 \item{board}{A \code{lightsout} board object}
 }
+\value{
+A matrix representing the current state of the lights (0 for off,
+1 for on) in the board
+}
 \description{
 Get the board entries (configuration of the lights)
+}
+\examples{
+board <- random_board(5)
+board
+board_entries(board)
 }
 

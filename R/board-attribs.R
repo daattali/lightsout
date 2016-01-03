@@ -1,6 +1,12 @@
 #' Get the board entries (configuration of the lights)
 #'
 #' @param board A \code{lightsout} board object
+#' @return A matrix representing the current state of the lights (0 for off,
+#' 1 for on) in the board
+#' @examples
+#' board <- random_board(5)
+#' board
+#' board_entries(board)
 #' @export
 board_entries <- function(board) {
   stopifnot(inherits(board, "lightsout"))

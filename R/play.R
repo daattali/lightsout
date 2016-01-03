@@ -88,7 +88,12 @@ play <- function(board, row, col, matrix) {
     }
   }
 
-  board
+  if (is_solved(board)) {
+    message("Good job, you won!")
+    invisible(board)
+  } else {
+    board
+  }
 }
 
 play_helper <- function(board, row, col) {

@@ -63,7 +63,9 @@ is_solvable <- function(board) {
   # The alogrithm always returns an answer, so just check the answer and see
   # if it indeed solves the board or not.
   answer <- solve_helper(board)
-  board <- play(board, matrix = answer)
+  suppressMessages(
+    board <- play(board, matrix = answer)
+  )
   is_solved(board)
 }
 

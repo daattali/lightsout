@@ -3,7 +3,7 @@
 #' Create a Lights Out board that can be played by the user or solved automatically.
 #' Only square boards of size 3x3, 5x5, 7x7, or 9x9 are supported. The initial
 #' lights configuration must be provided. To create a board with a random
-#' configuration, use the \code{\link[lightsout]{random_board()}} function.
+#' configuration, use the \code{\link[lightsout]{random_board}} function.
 #'
 #' @param entries The initial configuration of lights on the board. \code{entries}
 #' can either be a vector or a matrix. If a vector is used, the vector is assumed
@@ -108,7 +108,7 @@ empty_board <- function(size, classic = TRUE) {
 #' Create a Lights Out board that can be played by the user or solved automatically.
 #' Only square boards of size 3x3, 5x5, 7x7, or 9x9 are supported. The initial
 #' lights configuration is randomly generated, but always solvable. To create a
-#' board with a user-defined configuration, use the \code{\link[lightsout]{new_board()}} function.
+#' board with a user-defined configuration, use the \code{\link[lightsout]{new_board}} function.
 #' @inheritParams new_board
 #' @param size Number of rows and columns for the board
 #' @seealso \code{\link[lightsout]{new_board}}
@@ -140,6 +140,8 @@ random_board <- function(size, classic = TRUE) {
   play_matrix <- matrix(0, ncol = size, nrow = size)
   play_matrix[positions] <- 1
   play_matrix <- t(play_matrix)
-  board <- play(board, matrix = play_matrix)
+  suppressMessages(
+    board <- play(board, matrix = play_matrix)
+  )
   board
 }

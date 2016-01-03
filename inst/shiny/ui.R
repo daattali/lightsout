@@ -1,3 +1,5 @@
+source("global.R")
+
 fluidPage(
   title = "Lights Out / Dean Attali",
   shinyjs::useShinyjs(),

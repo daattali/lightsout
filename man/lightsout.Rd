@@ -4,7 +4,7 @@
 \name{lightsout}
 \alias{lightsout}
 \alias{lightsout-package}
-\title{lightsout package -  Implementation of the 'Lights Out' Puzzle Game Including a Solver}
+\title{lightsout package -  Implementation of the 'Lights Out' Puzzle Game}
 \description{
 Lights Out is a puzzle game consisting of a grid of lights
 that are either on or off. Pressing any light will toggle it and its

@@ -20,7 +20,7 @@ A \code{lightsout} board object.
 Create a Lights Out board that can be played by the user or solved automatically.
 Only square boards of size 3x3, 5x5, 7x7, or 9x9 are supported. The initial
 lights configuration is randomly generated, but always solvable. To create a
-board with a user-defined configuration, use the \code{\link[lightsout]{new_board()}} function.
+board with a user-defined configuration, use the \code{\link[lightsout]{new_board}} function.
 }
 \examples{
 set.seed(10)

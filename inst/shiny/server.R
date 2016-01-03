@@ -1,3 +1,5 @@
+source("global.R")
+
 library(lightsout)
 
 server <- function(input, output, session) {
@@ -68,7 +70,9 @@ server <- function(input, output, session) {
     lapply(seq(max(allowed_sizes)), function(col) {
       id <- sprintf("cell-%s-%s", row, col)
       observeEvent(input[[id]], {
-        values$board <- play(values$board, row = row, col = col)
+        suppressMessages(
+          values$board <- play(values$board, row = row, col = col)
+        )
         if (values$showHint) {
           values$solution <- solve_board(values$board)
         }

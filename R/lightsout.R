@@ -1,4 +1,4 @@
-#' lightsout package -  Implementation of the 'Lights Out' Puzzle Game Including a Solver
+#' lightsout package -  Implementation of the 'Lights Out' Puzzle Game
 #'
 #' Lights Out is a puzzle game consisting of a grid of lights
 #' that are either on or off. Pressing any light will toggle it and its
