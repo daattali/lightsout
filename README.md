@@ -43,6 +43,8 @@ Quick start
 Other than the Shiny app that lets you play the game visually, you can
 also interact with `lightsout` using the command line.
 
+### Create a game board
+
 You can use the `random_board()` function to initialize a new Lights Out
 game with a random configuration of lights. The generated board is
 guaranteed to be solvable. The first argument to the function is the
@@ -102,6 +104,8 @@ it's solvable before attempting to play it.
 
     #> [1] TRUE
 
+### Press a light
+
 Pressing a light is done with the `play()` function. Pressing a light
 will cause that light and all its adjacent lights to toggle (in classic
 mode, which is the default). All the coordinates in `lightsout` are
@@ -149,6 +153,8 @@ pressed will result in all lights being off:
 
 Notice also that `lightsout` works well with the `%>%` operator that
 allows you to easily chain calls.
+
+### Press multiple lights
 
 By chaining calls, you can press multiple lights easily one after the
 other:
@@ -228,6 +234,9 @@ of size 5.
     #>  
 
 This one isn't so simple, is it? You can try playing with it for a bit.
+
+### Get the solution
+
 If you want to see the solution to a board, use the `solve_board()`
 function:
 
