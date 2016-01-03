@@ -18,12 +18,14 @@ Depends:
 Imports:
     magrittr (>= 1.5),
     shiny (>= 0.10.0),
-    shinyjs (>= 0.3.0)
+    shinyjs (>= 0.3.0),
+    stats,
+    utils
 Suggests:
     knitr (>= 1.7),
     testthat (>= 0.9.1),
     rmarkdown
-License: file LICENSE
+License: MIT + file LICENSE
 LazyData: true
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1

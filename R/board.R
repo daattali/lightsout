@@ -86,7 +86,7 @@ new_board <- function(entries, classic = TRUE) {
 print.lightsout <- function(x, ...) {
   cat("Lights Out ", board_size(x), "x", board_size(x), " board", "\n", sep = "")
   cat("Game mode:", ifelse(board_classic(x), "classic", "entire row/column"), "\n\n\t")
-  write.table(board_entries(x), row.names = FALSE, col.names = FALSE, eol = "\n\t")
+  utils::write.table(board_entries(x), row.names = FALSE, col.names = FALSE, eol = "\n\t")
 }
 
 #' Initialize a Lights Out board with all lights switched off
@@ -135,7 +135,7 @@ random_board <- function(size, classic = TRUE) {
   # somee lights randomly. The number of lights pressed is between 20% to 80% of
   # the number of total lights on the board
   board <- empty_board(size, classic = classic)
-  num_plays <- round(runif(1, size*size*0.2, size*size*0.8))
+  num_plays <- round(stats::runif(1, size*size*0.2, size*size*0.8))
   positions <- sort(sample(size*size, num_plays))
   play_matrix <- matrix(0, ncol = size, nrow = size)
   play_matrix[positions] <- 1

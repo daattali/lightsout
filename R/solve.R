@@ -154,5 +154,5 @@ solve_helper <- function(board) {
 #' @keywords internal
 print.lightsout_solution <- function(x, ...) {
   cat("\n\t")
-  write.table(x, row.names = FALSE, col.names = FALSE, eol = "\n\t")
+  utils::write.table(x, row.names = FALSE, col.names = FALSE, eol = "\n\t")
 }
