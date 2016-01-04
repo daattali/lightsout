@@ -60,3 +60,9 @@ Best
 Fixed license line in DESCRIPTION and added namespacing to functions from default packages
 
 ## Reviewer comments
+
+Kurt Hornik 2016-01-04:
+
+Thanks, on CRAN now.
+
+Best
