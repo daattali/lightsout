@@ -1,6 +1,6 @@
 Package: lightsout
 Title: Implementation of the 'Lights Out' Puzzle Game
-Version: 0.2
+Version: 0.2.1
 Authors@R: c(
     person("Dean", "Attali", , "daattali@gmail.com", role = c("aut", "cre"))
     )
@@ -26,6 +26,7 @@ Suggests:
     testthat (>= 0.9.1),
     rmarkdown
 License: MIT + file LICENSE
+SystemRequirements: pandoc with https support
 LazyData: true
 VignetteBuilder: knitr
 RoxygenNote: 5.0.1
