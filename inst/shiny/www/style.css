@@ -51,6 +51,11 @@ body {
   -webkit-border-radius: 5px;
   border: 1px solid #aaa;
 }
+@media only screen and (max-width: 550px) {
+  #board-inner {
+    padding: 15px;
+  }
+}
 .board-row {
   display: inline-block;
 }
@@ -63,6 +68,12 @@ body {
   border-radius: 25px;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
+}
+@media only screen and (max-width: 550px) {
+  .board-cell {
+    width: 30px;
+    height: 30px;
+  }
 }
 .board-cell.off {
   background: #009900;
@@ -111,4 +122,10 @@ body {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 550px) {
+  #congrats {
+    font-size: 30px;
+  }
 }
