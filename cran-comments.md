@@ -66,3 +66,21 @@ Kurt Hornik 2016-01-04:
 Thanks, on CRAN now.
 
 Best
+
+# Version 0.3
+
+### Test environments
+
+* Windows 7, R 3.3.0 (local)
+* ubuntu 12.04, R 3.3.1 (on travis-ci)
+* ubuntu 14.04, R 3.2.1 (on my DigitalOcean droplet)
+
+## Round 1
+
+### Submission comments
+
+2016-07-25
+
+no warnings, errors, or notes
+
+### Reviewer comments
