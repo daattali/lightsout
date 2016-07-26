@@ -1,7 +1,6 @@
 language: r
-
-# R support in Travis CI currently requires sudo http://docs.travis-ci.com/user/languages/r/
-sudo: true
+sudo: false
+cache: packages
 
 r_github_packages:
   - jimhester/covr

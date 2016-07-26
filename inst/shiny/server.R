@@ -4,11 +4,11 @@ library(lightsout)
 
 server <- function(input, output, session) {
   values <- reactiveValues(
-    size = NULL,
-    board = NULL,
-    showHint = NULL,
-    solution = NULL,
-    active = NULL
+    size = NULL,     # Number of rows/columns
+    board = NULL,    # The board matrix
+    showHint = NULL, # Whether or not to show hints on the board
+    solution = NULL, # The solution matrix
+    active = NULL    # Whether or not a game is currently in session
   )
 
   # New game button is clicked (this also runs when the app first loads)
