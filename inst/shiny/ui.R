@@ -4,7 +4,21 @@ fluidPage(
   title = "Lights Out / Dean Attali",
   shinyjs::useShinyjs(),
   tags$head(
-    tags$link(href = "style.css", rel = "stylesheet")
+    tags$link(href = "style.css", rel = "stylesheet"),
+
+    # Facebook OpenGraph tags
+    tags$meta(property = "og:title", content = "Lights Out"),
+    tags$meta(property = "og:type", content = "website"),
+    tags$meta(property = "og:url", content = "http://daattali.com/shiny/lightsout/"),
+    tags$meta(property = "og:image", content = "http://daattali.com/shiny/img/lightsout.png"),
+
+    # Twitter summary cards
+    tags$meta(name = "twitter:card", content = "summary"),
+    tags$meta(name = "twitter:site", content = "@daattali"),
+    tags$meta(name = "twitter:creator", content = "@daattali"),
+    tags$meta(name = "twitter:title", content = "Lights Out"),
+    tags$meta(name = "twitter:description", content = "Play the classic Lights Out puzzle game in R"),
+    tags$meta(name = "twitter:image", content = "http://daattali.com/shiny/img/lightsout.png")
   ),
   div(id = "header",
       div(id = "title",
