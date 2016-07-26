@@ -1,5 +1,13 @@
 source("global.R")
 
+share <- list(
+  title = "Lights Out",
+  url = "http://daattali.com/shiny/lightsout/",
+  image = "http://daattali.com/shiny/img/lightsout.png",
+  description = "Play the classic Lights Out puzzle game in R",
+  twitter_user = "daattali"
+)
+
 fluidPage(
   title = "Lights Out / Dean Attali",
   shinyjs::useShinyjs(),
@@ -10,18 +18,19 @@ fluidPage(
     tags$link(rel = "shortcut icon", type="image/x-icon", href="favicon.ico"),
 
     # Facebook OpenGraph tags
-    tags$meta(property = "og:title", content = "Lights Out"),
+    tags$meta(property = "og:title", content = share$title),
     tags$meta(property = "og:type", content = "website"),
-    tags$meta(property = "og:url", content = "http://daattali.com/shiny/lightsout/"),
-    tags$meta(property = "og:image", content = "http://daattali.com/shiny/img/lightsout.png"),
+    tags$meta(property = "og:url", content = share$url),
+    tags$meta(property = "og:image", content = share$image),
+    tags$meta(property = "og:description", content = share$description),
 
     # Twitter summary cards
     tags$meta(name = "twitter:card", content = "summary"),
-    tags$meta(name = "twitter:site", content = "@daattali"),
-    tags$meta(name = "twitter:creator", content = "@daattali"),
-    tags$meta(name = "twitter:title", content = "Lights Out"),
-    tags$meta(name = "twitter:description", content = "Play the classic Lights Out puzzle game in R"),
-    tags$meta(name = "twitter:image", content = "http://daattali.com/shiny/img/lightsout.png")
+    tags$meta(name = "twitter:site", content = paste0("@", share$twitter_user)),
+    tags$meta(name = "twitter:creator", content = paste0("@", share$twitter_user)),
+    tags$meta(name = "twitter:title", content = share$title),
+    tags$meta(name = "twitter:description", content = share$description),
+    tags$meta(name = "twitter:image", content = share$image)
   ),
   div(id = "header",
       div(id = "title",
