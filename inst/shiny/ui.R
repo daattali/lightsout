@@ -6,6 +6,9 @@ fluidPage(
   tags$head(
     tags$link(href = "style.css", rel = "stylesheet"),
 
+    # Favicon
+    tags$link(rel = "shortcut icon", type="image/x-icon", href="favicon.ico"),
+
     # Facebook OpenGraph tags
     tags$meta(property = "og:title", content = "Lights Out"),
     tags$meta(property = "og:type", content = "website"),
