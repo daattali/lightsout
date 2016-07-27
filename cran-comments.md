@@ -84,3 +84,10 @@ Best
 no warnings, errors, or notes
 
 ### Reviewer comments
+
+2016-07-26 Uwe Ligges
+
+Thanks, on CRAN now.
+
+Best,
+Uwe Ligges
