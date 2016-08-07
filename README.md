@@ -8,6 +8,9 @@ version](http://www.r-pkg.org/badges/version/lightsout)](https://cran.r-project.
 [![Coverage
 Status](https://coveralls.io/repos/daattali/lightsout/badge.svg?branch=master&service=github)](https://coveralls.io/github/daattali/lightsout?branch=master)
 
+> *Copyright 2016 [Dean Attali](http://deanattali.com). Licensed under
+> the MIT license.*
+
 Lights Out is a puzzle game consisting of a grid of lights that are
 either on or off. Pressing any light will toggle it and its adjacent
 lights. The goal of the game is to switch all the lights off. This
