@@ -7,6 +7,7 @@ Status](https://travis-ci.org/daattali/lightsout.svg?branch=master)](https://tra
 version](http://www.r-pkg.org/badges/version/lightsout)](https://cran.r-project.org/package=lightsout)
 [![Coverage
 Status](https://coveralls.io/repos/daattali/lightsout/badge.svg?branch=master&service=github)](https://coveralls.io/github/daattali/lightsout?branch=master)
+[![saythanks](http://i.imgur.com/L88apDa.png)](https://saythanks.io/to/daattali)
 
 > *Copyright 2016 [Dean Attali](http://deanattali.com). Licensed under
 > the MIT license.*
