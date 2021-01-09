@@ -2,7 +2,8 @@ Package: lightsout
 Title: Implementation of the 'Lights Out' Puzzle Game
 Version: 0.3
 Authors@R: c(
-    person("Dean", "Attali", , "daattali@gmail.com", role = c("aut", "cre"))
+    person("Dean", "Attali", , "daattali@gmail.com", role = c("aut", "cre"),
+    comment= c(ORCID="0000-0002-5645-3493"))
     )
 Description: Lights Out is a puzzle game consisting of a grid of lights
     that are either on or off. Pressing any light will toggle it and its
