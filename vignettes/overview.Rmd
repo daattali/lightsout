@@ -15,13 +15,18 @@ knitr::opts_chunk$set(tidy = FALSE, comment = "#>")
 
 # lightsout - Implementation of the 'Lights Out' Puzzle Game in R
 
-[![Build Status](https://travis-ci.org/daattali/lightsout.svg?branch=master)](https://travis-ci.org/daattali/lightsout)
+[![R Build Status](https://github.com/daattali/lightsout/workflows/R-CMD-check/badge.svg)](https://github.com/daattali/lightsout/actions)
 [![CRAN version](http://www.r-pkg.org/badges/version/lightsout)](https://cran.r-project.org/package=lightsout)
 [![Coverage Status](https://coveralls.io/repos/daattali/lightsout/badge.svg?branch=master&service=github)](https://coveralls.io/github/daattali/lightsout?branch=master)
 
 > *Copyright 2016 [Dean Attali](http://deanattali.com). Licensed under the MIT license.*
 
 Lights Out is a puzzle game consisting of a grid of lights that are either on or off. Pressing any light will toggle it and its adjacent lights. The goal of the game is to switch all the lights off. This package provides an interface to play the game on different board sizes, both through the command line or with a visual application (Shiny app). Puzzles can also be solved using the automatic solver included. Play the game either by downloading the package or online at [http://daattali.com/shiny/lightsout/](http://daattali.com/shiny/lightsout/).
+
+**Need Shiny help? [I’m available for
+consulting](https://attalitech.com/).**<br/> **If you find {shinyjs}
+useful, please consider [supporting my
+work](https://github.com/sponsors/daattali) to unlock rewards\! ❤**
 
 ## Play the game
 

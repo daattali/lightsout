@@ -1,8 +1,7 @@
 lightsout - Implementation of the 'Lights Out' Puzzle Game in R
 ===============================================================
 
-[![Build
-Status](https://travis-ci.org/daattali/lightsout.svg?branch=master)](https://travis-ci.org/daattali/lightsout)
+[![R Build Status](https://github.com/daattali/lightsout/workflows/R-CMD-check/badge.svg)](https://github.com/daattali/lightsout/actions)
 [![CRAN
 version](http://www.r-pkg.org/badges/version/lightsout)](https://cran.r-project.org/package=lightsout)
 [![Coverage
@@ -19,6 +18,11 @@ both through the command line or with a visual application (Shiny app).
 Puzzles can also be solved using the automatic solver included. Play the
 game either by downloading the package or online at
 [<http://daattali.com/shiny/lightsout/>](http://daattali.com/shiny/lightsout/).
+
+**Need Shiny help? [I’m available for
+consulting](https://attalitech.com/).**<br/> **If you find {shinyjs}
+useful, please consider [supporting my
+work](https://github.com/sponsors/daattali) to unlock rewards\! ❤**
 
 Play the game
 -------------
