@@ -10,4 +10,3 @@
 Print a lightsout board
 }
 \keyword{internal}
-

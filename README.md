@@ -3,11 +3,11 @@ lightsout - Implementation of the 'Lights Out' Puzzle Game in R
 
 [![R Build Status](https://github.com/daattali/lightsout/workflows/R-CMD-check/badge.svg)](https://github.com/daattali/lightsout/actions)
 [![CRAN
-version](http://www.r-pkg.org/badges/version/lightsout)](https://cran.r-project.org/package=lightsout)
+version](https://www.r-pkg.org/badges/version/lightsout)](https://cran.r-project.org/package=lightsout)
 [![Coverage
 Status](https://coveralls.io/repos/daattali/lightsout/badge.svg?branch=master&service=github)](https://coveralls.io/github/daattali/lightsout?branch=master)
 
-> *Copyright 2016 [Dean Attali](http://deanattali.com). Licensed under
+> *Copyright 2023 [Dean Attali](https://deanattali.com). Licensed under
 > the MIT license.*
 
 Lights Out is a puzzle game consisting of a grid of lights that are
@@ -17,7 +17,7 @@ package provides an interface to play the game on different board sizes,
 both through the command line or with a visual application (Shiny app).
 Puzzles can also be solved using the automatic solver included. Play the
 game either by downloading the package or online at
-[<http://daattali.com/shiny/lightsout/>](http://daattali.com/shiny/lightsout/).
+[<https://daattali.com/shiny/lightsout/>](https://daattali.com/shiny/lightsout/).
 
 **Need Shiny help? [I’m available for
 consulting](https://attalitech.com/).**<br/> **If you find {shinyjs}
@@ -33,7 +33,7 @@ user interface. To run the game locally, install the package with
 command. This will launch the provided app in a web browser.
 
 Alternatively, you can see the app online at
-[<http://daattali.com/shiny/lightsout/>](http://daattali.com/shiny/lightsout/).
+[<https://daattali.com/shiny/lightsout/>](https://daattali.com/shiny/lightsout/).
 
 The game looks like this:
 

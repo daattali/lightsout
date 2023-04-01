@@ -2,8 +2,8 @@ source("global.R")
 
 share <- list(
   title = "Lights Out",
-  url = "http://daattali.com/shiny/lightsout/",
-  image = "http://daattali.com/shiny/img/lightsout.png",
+  url = "https://daattali.com/shiny/lightsout/",
+  image = "https://daattali.com/shiny/img/lightsout.png",
   description = "Play the classic Lights Out puzzle game in R",
   twitter_user = "daattali"
 )
@@ -45,12 +45,12 @@ fluidPage(
       ),
       div(id = "subsubtitle",
           "Created by",
-          tags$a(href = "http://deanattali.com/", "Dean Attali"),
+          tags$a(href = "https://deanattali.com/", "Dean Attali"),
           HTML("&bull;"),
           "Package available",
           tags$a(href = "https://github.com/daattali/lightsout", "on GitHub"),
           HTML("&bull;"),
-          tags$a(href = "http://daattali.com/shiny/", "More apps"), "by Dean"
+          tags$a(href = "https://daattali.com/shiny/", "More apps"), "by Dean"
       )
   ),
   fluidRow(

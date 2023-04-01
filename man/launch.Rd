@@ -9,4 +9,3 @@ launch()
 \description{
 Run the graphical interface to the game in a web browser
 }
-

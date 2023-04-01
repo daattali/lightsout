@@ -15,4 +15,3 @@ board_entries(board) <- value
 Set the board entries
 }
 \keyword{internal}
-

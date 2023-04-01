@@ -1,6 +1,6 @@
 Package: lightsout
 Title: Implementation of the 'Lights Out' Puzzle Game
-Version: 0.3
+Version: 0.3.1
 Authors@R: c(
     person("Dean", "Attali", , "daattali@gmail.com", role = c("aut", "cre"),
     comment= c(ORCID="0000-0002-5645-3493"))
@@ -11,7 +11,7 @@ Description: Lights Out is a puzzle game consisting of a grid of lights
     package provides an interface to play the game on different board sizes,
     both through the command line or with a visual application. Puzzles can
     also be solved using the automatic solver included. View a demo
-    online at http://daattali.com/shiny/lightsout/.
+    online at https://daattali.com/shiny/lightsout/.
 URL: https://github.com/daattali/lightsout
 BugReports: https://github.com/daattali/lightsout/issues
 Depends:
@@ -28,6 +28,6 @@ Suggests:
     rmarkdown
 License: MIT + file LICENSE
 SystemRequirements: pandoc with https support
-LazyData: true
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
+RoxygenNote: 7.2.3
+Encoding: UTF-8

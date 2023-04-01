@@ -13,4 +13,3 @@ board_size(board)
 Get the board size (number of rows/columns)
 }
 \keyword{internal}
-

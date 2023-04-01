@@ -3,7 +3,6 @@
 \docType{package}
 \name{lightsout}
 \alias{lightsout}
-\alias{lightsout-package}
 \title{lightsout package -  Implementation of the 'Lights Out' Puzzle Game}
 \description{
 Lights Out is a puzzle game consisting of a grid of lights
@@ -12,7 +11,6 @@ adjacent lights. The goal of the game is to switch all the lights off. This
 package provides an interface to play the game on different board sizes,
 both through the command line or with a visual application. Puzzles can
 also be solved using the automatic solver included.
-\href{http://daattali.com/shiny/lightsout/}{View a demo online} or see the
+\href{https://daattali.com/shiny/lightsout/}{View a demo online} or see the
 full \href{https://github.com/daattali/lightsout}{README} on GitHub.
 }
-

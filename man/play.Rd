@@ -70,4 +70,3 @@ empty_board(5, classic = FALSE) \%>\% play(c(2, 3), c(1, 4))
 \code{\link[lightsout]{new_board}}
 \code{\link[lightsout]{random_board}}
 }
-

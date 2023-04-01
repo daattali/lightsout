@@ -31,4 +31,3 @@ is_solvable(board_variant)
 \code{\link[lightsout]{is_solved}}
 \code{\link[lightsout]{solve_board}}
 }
-

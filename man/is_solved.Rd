@@ -29,4 +29,3 @@ is_solved(board)
 \code{\link[lightsout]{is_solvable}}
 \code{\link[lightsout]{solve_board}}
 }
-

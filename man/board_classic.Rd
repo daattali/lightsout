@@ -14,4 +14,3 @@ In classic mode, pressing a light will toggle it and its adjacent neighbours onl
 If non-classic mode, pressing a light will toggle the entire row and column of the pressed light.
 }
 \keyword{internal}
-

@@ -42,4 +42,3 @@ play(board, matrix = solution)
 \code{\link[lightsout]{play}}
 \code{\link[lightsout]{solve_board}}
 }
-

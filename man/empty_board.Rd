@@ -26,4 +26,3 @@ empty_board(5)
 \code{\link[lightsout]{random_board}}
 \code{\link[lightsout]{new_board}}
 }
-

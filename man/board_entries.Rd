@@ -21,4 +21,3 @@ board <- random_board(5)
 board
 board_entries(board)
 }
-

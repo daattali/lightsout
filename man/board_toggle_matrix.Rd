@@ -16,4 +16,3 @@ board configuration and \code{x} is the solution. This function returns
 the matrix \code{A}.
 }
 \keyword{internal}
-
