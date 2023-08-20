@@ -1,6 +1,6 @@
 Package: lightsout
 Title: Implementation of the 'Lights Out' Puzzle Game
-Version: 0.3.1
+Version: 0.3.2
 Authors@R: c(
     person("Dean", "Attali", , "daattali@gmail.com", role = c("aut", "cre"),
     comment= c(ORCID="0000-0002-5645-3493"))
